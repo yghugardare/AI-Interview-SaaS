@@ -19,6 +19,7 @@ import { FormEvent, useState } from "react";
 import { db } from "@/utils/db";
 import { useUser } from "@clerk/nextjs";
 import { MockInterview } from "@/utils/schema";
+import { useRouter } from "next/navigation";
 
 const interview_question_count = 5;
 function AddNewInterview() {
@@ -28,6 +29,7 @@ function AddNewInterview() {
   const [jobExperience, setJobExperience] = useState<string>("");
   const [jsonMockResp, setjsonMockResp] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
   const { user } = useUser();
   const { toast } = useToast();
   const handleSubmit = async (e: FormEvent) => {
@@ -74,9 +76,10 @@ function AddNewInterview() {
           mockId: uuidv4(),
         })
         .returning({ mockId: MockInterview.mockId });
-        // console.log("Mock Id: ",response);
+        const mId = response[0]?.mockId;
         if(response){
           setOpenDialog(false);
+          router.push("/dashboard/interview/"+mId);
         }
         
     } catch (error: any) {
