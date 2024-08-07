@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌟 AI Mock Interview SaaS 🌟
 
-## Getting Started
+Welcome to the **AI Mock Interview SaaS**, your personal AI-powered interview coach! This web app integrates the cutting-edge Google Gemini AI model API to simulate real interview scenarios, helping you to sharpen your skills and get ready for your dream job.
 
-First, run the development server:
+Link - https://ai-interview-saas-yashdg.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **AI-Generated Questions**: Enter your job role, description, and years of experience to get tailored interview questions.
+- **Live Interview Simulation**: Turn on your microphone and webcam to answer questions just like in a real interview.
+- **Speech-to-Text Conversion**: Your responses are converted from speech to text for analysis.
+- **AI Feedback and Rating**: Get instant feedback, a rating out of 5, and sample responses for improvement.
+- **Data Storage**: All information is stored in the database, allowing you to review and track your progress anytime.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Frontend**: TypeScript, Next.js 14, Shadcn UI, Tailwind CSS
+- **Authentication**: Clerk
+- **Database**: Neon PostgreSQL, Drizzle ORM
 
-## Learn More
+## 🎉 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+Follow these steps to get the project up and running on your local machine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Node.js
+- PostgreSQL
 
-## Deploy on Vercel
+### Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```bash
+    git clone https://github.com/yghugardare/AI-Interview-SaaS
+    cd ai-mock-interview-saas
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+3. **Set up environment variables**
+
+    Create a `.env` file in the root directory and add your environment variables.
+
+    ```plaintext
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-key
+    CLERK_SECRET_KEY=your-key
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+    NEXT_PUBLIC_DRIZZLE_DB_URL=postgresql://yourdblink
+    NEXT_PUBLIC_GEMINI_API_KEY=your-api
+    ```
+
+4. **Run database migrations**
+
+    ```bash
+    npm run db:push
+    ```
+
+5. **Start the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) to see your app in action.
+
+## 📚 Usage
+
+1. **Sign up / Log in**: Authenticate using Clerk.
+2. **Enter Details**: Provide your job role, description, and years of experience.
+3. **Start Interview**: Answer the AI-generated questions with your microphone and webcam on.
+4. **Get Feedback**: Receive detailed feedback, rating, and sample responses.
+5. **Review**: Access your past interview data anytime to monitor your progress.
+
+## 🤖 AI Integration
+
+The app uses Google Gemini AI to generate interview questions and provide feedback. The AI analyzes your speech-to-text converted responses to give you constructive feedback and a rating out of 5.
+
+## 🗂 Database
+
+The app uses Neon PostgreSQL with Drizzle ORM to store all user data, ensuring efficient and secure access to your interview history.
+
+## 🛡 Authentication
+
+User authentication is handled by Clerk, providing secure and seamless sign-up and log-in processes.
+
+## 🎨 UI/UX
+
+Styled with Tailwind CSS and Shadcn UI, the app offers a modern and intuitive interface for the best user experience.
+
+
+
+
+
+---
+
+Feel free to explore, use, and contribute to this project. Happy interviewing! 🚀
+
