@@ -36,16 +36,11 @@ function AddNewInterview() {
     setLoading(true);
     try {
       e.preventDefault();
-      const InputPrompt =
-        "Job position: " +
-        jobPosition +
-        ", Job Description: " +
-        jobDesc +
-        ", Years of Experience : " +
-        jobExperience +
-        " , Depends on Job Position, Job Description & Years of Experience give us " +
-        interview_question_count +
-        " Interview question along with Answer in JSON format, Give us question and answer field on JSON";
+      const InputPrompt = `
+Job Position: ${jobPosition},
+Job Description: ${jobDesc},
+Years of Experience: ${jobExperience}.
+Based on the Job Position, Job Description, and Years of Experience, provide ${interview_question_count} interview questions along with their answers in JSON format. Ensure the JSON format includes "question" and "answer" fields for each entry and is syntactically correct.`;
       const result = await chatSession.sendMessage(InputPrompt);
       // const text:string = result.response.text();
       const jsonString: string = result.response
@@ -54,7 +49,7 @@ function AddNewInterview() {
         .replace("```", "");
       setjsonMockResp(jsonString);
       // console.log(jsonString);
-      
+
       if (!jsonString) {
         toast({
           variant: "destructive",
@@ -76,12 +71,11 @@ function AddNewInterview() {
           mockId: uuidv4(),
         })
         .returning({ mockId: MockInterview.mockId });
-        const mId = response[0]?.mockId;
-        if(response){
-          setOpenDialog(false);
-          router.push("/dashboard/interview/"+mId);
-        }
-        
+      const mId = response[0]?.mockId;
+      if (response) {
+        setOpenDialog(false);
+        router.push("/dashboard/interview/" + mId);
+      }
     } catch (error: any) {
       toast({
         variant: "destructive",

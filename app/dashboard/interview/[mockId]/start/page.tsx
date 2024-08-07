@@ -41,11 +41,9 @@ function Start({ params }: InterviewProp) {
       .where(eq(MockInterview.mockId, params.mockId));
     // Sanitize the JSON string to remove bad control characters
     // console.log(result[0].jsonMockResp)
-    const sanitizedJson = result[0].jsonMockResp.replace(
-      /[\u0000-\u001F\u007F]/g,
-      ""
-    );
+    const sanitizedJson = result[0].jsonMockResp;
     try {
+      console.log("Sanitized JSON before parsing:", sanitizedJson); 
       const jsonMockResp = JSON.parse(sanitizedJson);
       setMockInterviewQuestion(jsonMockResp);
       console.log(jsonMockResp);
