@@ -35,7 +35,7 @@ function Interview({ params }: InterviewProp) {
       .select()
       .from(MockInterview)
       .where(eq(MockInterview.mockId, params.mockId));
-    console.log(result[0]);
+    // console.log(result[0]);
     setInterviewData(result[0]);
   }
   return (
