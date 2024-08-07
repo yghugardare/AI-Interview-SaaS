@@ -4,6 +4,7 @@ import { MockInterview } from '@/utils/schema';
 import { eq } from 'drizzle-orm';
 import {useState,useEffect} from 'react'
 import QuestionsSection from './_components/QuestionSection';
+import RecordAnswerSection from './_components/RecordAnswerSection';
 
 type InterviewProp = {
   params: { mockId: string };
@@ -43,6 +44,7 @@ function Start({params}:InterviewProp) {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
       <QuestionsSection  mockInterviewQuestion={mockInterviewQuestion} activeQuestionIndex={activeQuestionIndex}/>
+      <RecordAnswerSection/>
     </div>
   )
 }

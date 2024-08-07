@@ -47,7 +47,7 @@ function QuestionsSection({
           <h2 className="text-sm text-primary my-2">
             Click on Record Answer when you want to answer the question. At the
             end of interview we will give you the feedback along with correct
-            answer for each of question and your answer to comapre it.
+            answer for each of question and your answer to compare it.
           </h2>
         </div>
       </div>
