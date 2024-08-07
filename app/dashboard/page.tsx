@@ -1,5 +1,5 @@
 
-import React from 'react'
+"use client"
 import AddNewInterview from './_components/AddNewInterview'
 import InterviewList from './_components/InterviewList'
 
