@@ -3,10 +3,12 @@ import React from "react";
 type QuestionsSectionProp = {
   mockInterviewQuestion: any[]|null;
   activeQuestionIndex: number;
+  setActiveQuestionIndex: (index: number) => void;
 };
 function QuestionsSection({
   mockInterviewQuestion,
   activeQuestionIndex,
+  setActiveQuestionIndex
 }: QuestionsSectionProp) {
 
   const textToSpeech = (text:string)=> {
@@ -26,6 +28,7 @@ function QuestionsSection({
             mockInterviewQuestion.map((question, index) => (
               <h2
                 key={question+" "+index}
+                onClick={()=>setActiveQuestionIndex(index)}
                 className={`p-2 border rounded-full
                 text-xs md:text-sm text-center cursor-pointer
                 ${activeQuestionIndex == index && "bg-primary text-white"}`}
